@@ -1,4 +1,4 @@
-export const userController=(req,res)=>{
+export const test=(req,res)=>{
     res.json({
         message:'Api Routes is working'
     })
