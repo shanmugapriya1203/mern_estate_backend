@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import bodyParser from 'body-parser'; // Import body-parser
+import bodyParser from 'body-parser'; 
+import cookieParser from 'cookie-parser';
 import userrouter from './api/routes/user_route.js';
 import authRouter from './api/routes/auth_route.js';
 import dotenv from 'dotenv';
@@ -22,7 +23,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(cookieParser())
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
