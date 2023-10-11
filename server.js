@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import userrouter from './api/routes/user_route.js';
 import authRouter from './api/routes/auth_route.js';
+import listRouter from './api/routes/listing_route.js'
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -48,3 +49,4 @@ app.get('/', (req, res) => {
 
 app.use('/api/user', userrouter);
 app.use('/api/auth', authRouter);
+app.use('/api/listing',listRouter)
