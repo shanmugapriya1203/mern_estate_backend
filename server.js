@@ -8,6 +8,7 @@ import authRouter from './api/routes/auth_route.js';
 import listRouter from './api/routes/listing_route.js'
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 
 mongoose.connect(process.env.MONGO).then(() => {

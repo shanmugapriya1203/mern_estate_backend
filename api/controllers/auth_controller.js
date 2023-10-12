@@ -30,14 +30,21 @@ export const signin = async (req, res) => {
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: pass, ...rest } = validUser._doc;
 
+    const oneDayInSeconds = 60 * 60 * 24;
     res
-      .cookie('access_token', token)
+      .cookie('access_token', token, {
+        secure: true,
+        httpOnly: true,
+        sameSite: 'Lax',
+        maxAge: oneDayInSeconds * 7, // Expires in 7 days
+      })
       .status(200)
       .json({ ...rest, token });
   } catch (error) {
     res.status(500).json({ success: false, message: 'An unexpected error occurred.' });
   }
 };
+
 
 
 

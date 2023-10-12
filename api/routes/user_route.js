@@ -1,5 +1,6 @@
 import express from 'express'
-import {deleteUserById, test, updateUser} from '../controllers/user_controller.js'
+import {deleteUserById, getUserListings, test, updateUser} from '../controllers/user_controller.js'
+import { verifyToken } from '../middleware.js'
 
 
 
@@ -7,6 +8,7 @@ import {deleteUserById, test, updateUser} from '../controllers/user_controller.j
 const router= express.Router()
 
 router.get('/test',test)
-router.post('/update/:id',  updateUser)
-router.delete('/delete/:id',deleteUserById)
+router.post('/update/:id',   verifyToken,updateUser)
+router.delete('/delete/:id', verifyToken, deleteUserById)
+router.get('/listing/:id',  verifyToken,getUserListings)
 export default router
