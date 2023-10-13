@@ -1,5 +1,5 @@
 import express from 'express'
-import {deleteUserById, getUserListings, test, updateUser} from '../controllers/user_controller.js'
+import {deleteUserById, getUser, getUserListings, test, updateUser} from '../controllers/user_controller.js'
 
 
 
@@ -11,4 +11,5 @@ router.get('/test',test)
 router.post('/update/:id',   updateUser)
 router.delete('/delete/:id',  deleteUserById)
 router.get('/listing/:id',getUserListings)
+router.get('/:id',getUser)
 export default router
