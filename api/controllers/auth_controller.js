@@ -47,7 +47,7 @@ export const signin = async (req, res) => {
 
 
 
-
+//google controller
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
