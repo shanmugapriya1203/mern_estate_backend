@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
     version: "1.0"
   });
 });
-
+//routes
 app.use('/api/user', userrouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing',listRouter)
